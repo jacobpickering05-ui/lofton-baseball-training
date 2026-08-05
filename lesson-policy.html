@@ -43,12 +43,12 @@
   <div class="wrap">
     <div class="policy-body">
 
-      <div class="policy-card">
+      <div class="policy-card reveal">
         <h2>Come Ready to Work</h2>
         <p>Please arrive mentally and physically ready to work. Every session is focused, purposeful training time — show up prepared to get better.</p>
       </div>
 
-      <div class="policy-card">
+      <div class="policy-card reveal">
         <h2>Monthly Packages</h2>
         <p>Lesson packages are monthly and should be completed within that month.</p>
         <ul>
@@ -57,12 +57,12 @@
         </ul>
       </div>
 
-      <div class="policy-card">
+      <div class="policy-card reveal">
         <h2>Unused Lessons</h2>
         <p>Unused lessons do not roll over to the following month unless a serious emergency or unforeseen circumstance is approved by the coaches.</p>
       </div>
 
-      <div class="policy-card">
+      <div class="policy-card reveal">
         <h2>Questions?</h2>
         <p>If anything about scheduling or packages is unclear, reach out before booking — we're happy to help.</p>
         <p><a href="tel:+16234991623" style="color:var(--royal);font-weight:700;">(623) 499-1623</a><br>
@@ -113,5 +113,18 @@
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');});return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.15});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 </body>
 </html>

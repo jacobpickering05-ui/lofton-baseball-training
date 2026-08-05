@@ -55,42 +55,42 @@
       <p>Every lesson at LBT is backed by three decades inside professional baseball — as a player, and as a coach trusted by an MLB organization.</p>
     </div>
     <div class="timeline">
-      <div class="inning">
+      <div class="inning reveal">
         <div class="yr">1993</div>
         <div>
           <h3>Drafted by the Cincinnati Reds</h3>
           <p>Selected in the 1993 MLB Draft out of Los Angeles, launching a professional career at 19 years old.</p>
         </div>
       </div>
-      <div class="inning">
+      <div class="inning reveal">
         <div class="yr">15 Years</div>
         <div>
           <h3>A Professional's Grind</h3>
           <p>Fifteen years in professional baseball — a switch-hitting shortstop battling through the Reds, Red Sox, and Orioles systems and multiple pro leagues. Nothing was handed to him. Everything was earned.</p>
         </div>
       </div>
-      <div class="inning">
+      <div class="inning reveal">
         <div class="yr">2001</div>
         <div>
           <h3>The Big Leagues — Boston Red Sox</h3>
           <p>Called up to the Majors as a shortstop for the Boston Red Sox. Coach Lofton knows exactly what it takes to reach the highest level of the game — because he stood on that field.</p>
         </div>
       </div>
-      <div class="inning">
+      <div class="inning reveal">
         <div class="yr">2014–17</div>
         <div>
           <h3>Coach, Seattle Mariners Organization</h3>
           <p>Hired by the Seattle Mariners to develop their professional prospects — four seasons coaching across the Mariners' minor league system, including as a hitting coach, shaping the next wave of big leaguers.</p>
         </div>
       </div>
-      <div class="inning">
+      <div class="inning reveal">
         <div class="yr">Today</div>
         <div>
           <h3>West Coast Infield Coordinator, New Balance Future Stars Series</h3>
           <p>A national platform for elite draft-caliber prospects — Coach Lofton leads infield development for the West Coast and managed the 2022 Future Stars Series Main Event.</p>
         </div>
       </div>
-      <div class="inning">
+      <div class="inning reveal">
         <div class="yr">Now</div>
         <div>
           <h3>Coach, Paradise Honors High School</h3>
@@ -104,7 +104,7 @@
 <!-- CHAMPIONSHIP -->
 <section class="section tight" style="background:#EFECE3;">
   <div class="wrap">
-    <div class="champ-grid">
+    <div class="champ-grid reveal">
       <div class="poster">
         <img src="images/champs-poster.jpg" alt="Paradise Honors High School Panthers — 2026 4A Skyline Region Champions poster">
       </div>
@@ -178,5 +178,18 @@
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');});return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.15});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 </body>
 </html>
